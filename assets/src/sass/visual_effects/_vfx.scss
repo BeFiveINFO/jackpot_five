@@ -1,0 +1,16 @@
+/*
+	Visual Effects Layer
+*/
+#vfx-wrapper {
+	top: 7px;
+	overflow: hidden;
+	position: absolute;
+	height: 594px;
+	width: 730px;
+	z-index: 11;
+	pointer-events: none; /* allows clicks on underlying elements (slider)*/
+	#vfx-container {
+		position: absolute;
+		left: 44%
+	}
+}

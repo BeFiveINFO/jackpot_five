@@ -1,0 +1,36 @@
+/*
+	marquee
+*/
+
+.marquee {
+	height: 215px;
+	width: 100%;
+	overflow: hidden;
+	background-color: black;
+
+	.overlay_glass {
+		width: 730px;
+		height: 215px;
+		position: absolute;
+		z-index: 11;
+		overflow: hidden;
+		pointer-events: none; /* allows clicks on underlying elements (slider)*/
+
+		box-shadow: rgba(255,255,255,.28) 0px 2px 1px, inset rgba(0,0,0,.5) 0 0px 24px;
+		background-image: linear-gradient(top, rgba(0,0,0,.1) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,.1) 100%);
+		background-clip: padding-box;
+
+		&:after {
+			width:150%;
+			height:100%;
+			position:absolute;
+			top:-45%;
+			left:-25%;
+			display:block;
+			content:"";
+			background:rgba(255,255,255,0.1);
+			border-radius:100%;
+		}
+	}
+
+}

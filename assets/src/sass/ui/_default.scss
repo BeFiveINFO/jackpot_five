@@ -1,0 +1,161 @@
+/*
+	fonts
+*/
+
+@font-face {
+    font-family: 'segment14regular';
+    src: url('../fonts/segment14-webfont.eot');
+    src: url('../fonts/segment14-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/segment14-webfont.woff2') format('woff2'),
+         url('../fonts/segment14-webfont.woff') format('woff'),
+         url('../fonts/segment14-webfont.ttf') format('truetype'),
+         url('../fonts/segment14-webfont.svg#segment14regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'oswaldbold';
+    src: url('../fonts/oswald-bold-webfont.eot');
+    src: url('../fonts/oswald-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/oswald-bold-webfont.woff2') format('woff2'),
+         url('../fonts/oswald-bold-webfont.woff') format('woff'),
+         url('../fonts/oswald-bold-webfont.ttf') format('truetype'),
+         url('../fonts/oswald-bold-webfont.svg#oswaldbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'yanone_kaffeesatzbold';
+    src: url('../fonts/yanonekaffeesatz-bold-webfont.eot');
+    src: url('../fonts/yanonekaffeesatz-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/yanonekaffeesatz-bold-webfont.woff2') format('woff2'),
+         url('../fonts/yanonekaffeesatz-bold-webfont.woff') format('woff'),
+         url('../fonts/yanonekaffeesatz-bold-webfont.ttf') format('truetype'),
+         url('../fonts/yanonekaffeesatz-bold-webfont.svg#yanone_kaffeesatzbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*
+	Default styling
+*/
+html, body{
+  min-height:100%;
+  overflow: hidden;
+}
+
+
+body {
+	font-family: 'Lucida Grande', Verdana, Arial;
+	font-size: 12px;
+	background-color: #ddd;
+	background:
+	radial-gradient(black 15%, transparent 16%) 0 0,
+	radial-gradient(black 15%, transparent 16%) 8px 8px,
+	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+	background-color:#282828;
+	background-size:16px 16px; /*https://github.com/LeaVerou/css3patterns*/
+}
+
+.alignCenter {
+	margin: 0 auto;
+}
+
+.alignMiddleCenter {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.dialog {
+	position: absolute;
+	max-width: 300px;
+	min-height: 60px;
+	max-height: 300px;
+	padding: 10px;
+	z-index: 1000;
+	border-radius: 12px;
+
+	background-color: gray;
+	background: linear-gradient(
+		to bottom, rgba(226,226,226,1) 0%,
+		#C8C8C8 5%,
+		#BFBFBF 7%,
+		#F0F0F0 90%,
+		#BFBFBF 98%,
+		#969696 100%
+	);
+	box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	font-family: 'yanone_kaffeesatzbold';
+}
+
+#console {
+	text-transform: uppercase;
+	font-size: 16px;
+	padding: 20px;
+	overflow: auto;
+	p{
+		margin-bottom: 0;
+		&.error {
+			color : red;
+		}
+	}
+}
+
+/*
+	debug &
+	development
+*/
+@if $debug == true {
+	#debug_1 {
+		top:0px;
+		left: 0px;
+		position: absolute;
+		z-index: 10000;
+
+		&.cabinet {
+			// Larger than mobile
+			@media (#{$bp-larger-than-mobile}) {&:before{content: "Current Screen Breakpoint: mobile #{$bp-larger-than-mobile}";}}
+
+			// Larger than phablet (also point when grid becomes active)
+			@media (#{$bp-larger-than-phablet}) {&:before{content: "Current Screen Breakpoint: phablet #{$bp-larger-than-phablet}";}}
+
+			// Larger than tablet
+			@media (#{$bp-larger-than-tablet}) {&:before{content: "Current Screen Breakpoint: tablet #{$bp-larger-than-tablet}";}}
+			// Larger than desktop
+			@media (#{$bp-larger-than-desktop}) {&:before{content: "Current Screen Breakpoint: DESKTOP #{$bp-larger-than-desktop}";}}
+
+			// Larger than Desktop HD
+			@media (#{$bp-larger-than-desktophd}) {&:before{content: "Current Screen Breakpoint: DESKTOP HD #{$bp-larger-than-desktophd}";}}
+		}
+	}
+	#debug_2 {
+		bottom:30px;
+		left: 320px;
+		position: absolute;
+	}
+	#debug_3 {
+		bottom:0px;
+		right: 0px;
+		position: absolute;
+	}
+	#debugChart {
+		bottom:0px;
+		position: absolute;
+		height: 150px;
+		width: 300px;
+	}
+} @else {
+	div[id^="debug_"], #debugChart {
+		display: none;
+	}
+}

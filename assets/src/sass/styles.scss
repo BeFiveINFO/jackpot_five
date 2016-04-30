@@ -1,0 +1,44 @@
+// Use Compass
+@import "compass";
+// variables
+@import "include/variables";
+// required
+@import "include/utils";
+@import "include/mixins";
+
+/*
+	skelton
+*/
+@import "include/skeleton";
+/*@import "include/timber";
+@import "include/timber-style";
+*/
+/*
+	default
+*/
+@import "ui/default";
+
+/*
+	Cabinet
+*/
+@import "cabinet/cabinet";
+@import "cabinet/marquee";
+@import "cabinet/paytable";
+@import "cabinet/frontface";
+@import "cabinet/controlpanel";
+
+/*
+	Mech-anisms
+*/
+@import "mech/reel";
+@import "mech/reelstrip";
+
+/*
+	visual effects
+*/
+@import "visual_effects/vfx";
+@import "visual_effects/coins";
+
+/*
+	user interface
+*/

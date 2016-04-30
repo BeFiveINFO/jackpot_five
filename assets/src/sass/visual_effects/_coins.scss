@@ -1,0 +1,231 @@
+.coin-container {
+	width: $coin;
+	height: $coin;
+	position: absolute;
+	margin-top: 610px;
+	perspective: 1000px;
+	animation-fill-mode: both;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+
+	&.type-a,
+	&.type-c,
+	&.type-d-reverse,
+	&.type-f-reverse
+	{
+		.coin .tail:after {
+			width:61px;
+			height:94px;
+			position:absolute;
+			top:-25px;
+			left:-25px;
+			display:block;
+			content:"";
+			background-image:url(../images/vfx/small_star_burst_b.png);
+			animation-name: blink-starburst;
+			animation-duration: 1.8s;
+			animation-fill-mode: both;
+			animation-iteration-count: infinite;
+		}
+	}
+	&.type-d,
+	&.type-e,
+	&.type-f,
+	&.type-a-reverse,
+	&.type-c-reverse
+	{
+		.coin .head:after {
+			width:61px;
+			height:94px;
+			position:absolute;
+			top:-25px;
+			left:-25px;
+			display:block;
+			content:"";
+			background-image:url(../images/vfx/small_star_burst_a.png);
+			animation-name: blink-starburst;
+			animation-duration: 1.8s;
+			animation-fill-mode: both;
+			animation-iteration-count: infinite;
+		}
+	}
+}
+
+.coin {
+	position: relative;
+	text-align: center;
+	transform-style: preserve-3d;
+	transform-origin: 40px 40px;
+
+	.tail, .head {
+		backface-visibility: hidden;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: transparent;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: $coin;
+		height: $coin;
+	}
+
+	.head {
+		z-index: 2;
+		background-image: url(../images/vfx/coin_head.png);
+		transform: rotateY(0deg);
+	}
+	.tail {
+		background-image: url(../images/vfx/coin_tail.png);
+		transform: rotateY(180deg);
+	}
+}
+
+/*
+	MOVEMENTS
+*/
+// mixin for the coin movement
+@mixin parabora-keyframes($_animation-name, $_force, $_reverse: false) {
+	$_decay: round($_force * -0.166) * 0.1;
+	$_steps: round($_force * 2.025 / abs($_decay));
+	$_one_phase: $_steps / 11;
+	$_current_y: 0;
+	$_previous_y: 0;
+	$_temp_y: 0;
+	$_j: 0;
+	/*
+		force #{$_force}
+		decay #{$_decay}
+		steps #{$_steps}
+		one phase #{$_one_phase}
+	*/
+	@keyframes #{$_animation-name} {
+		@for $_i from 0 through 10 {
+			$_percent: 10% * $_i;
+			#{$_percent} {
+				$_x: round($_one_phase * $_i * 2);
+				@if $_reverse == true {
+					$_x: $_x * -1;
+				}
+				@if $_i != 0 {
+					@for $_j from 0 through round($_one_phase) {
+						$_temp_y: $_current_y;
+						$_current_y: $_current_y + $_current_y - $_previous_y + $_force;
+						$_previous_y: $_temp_y;
+						/* $_current_y #{$_current_y} */
+					}
+				} @else {
+					$_temp_y: $_current_y;
+					$_current_y: $_current_y + $_current_y - $_previous_y + $_force;
+					$_previous_y: $_temp_y;
+					$_force: $_decay; // reset force
+				}
+				transform: translate(ceil($_x)#{px}, ceil($_current_y*-1)#{px});
+			}
+		}
+	}
+
+	.coin-container.#{$_animation-name} {
+		animation-name: #{$_animation-name};
+	}
+}
+
+/*
+		// function
+function processVerlet() {
+				if (verletData.y <= 0 && verletData.force <= 0) return; // do nothing
+				var _yTemp = verletData.y;
+				verletData.y += (verletData.y - verletData.yPrev) + verletData.force;
+				verletData.yPrev = _yTemp;
+				if (verletData.force > 0) verletData.force = parseFloat($('#decay').val()+0); // reset force
+				verletData.totalStepsNum++; // increase totalStepsNum register by one
+		}
+*/
+
+/* Movement Patterns */
+
+	/* A */
+	@include parabora-keyframes(type-a, 10);
+	/* B */
+	@include parabora-keyframes(type-b, 11 );
+	/* C */
+	@include parabora-keyframes(type-c, 12 );
+	/* D */
+	@include parabora-keyframes(type-d, 13 );
+	/* E */
+	@include parabora-keyframes(type-e, 14 );
+	/* F */
+	@include parabora-keyframes(type-f, 15 );
+
+	/* A  reverse */
+	@include parabora-keyframes(type-a-reverse, 10, true);
+	/* B */
+	@include parabora-keyframes(type-b-reverse, 11, true);
+	/* C */
+	@include parabora-keyframes(type-c-reverse, 12, true);
+	/* D */
+	@include parabora-keyframes(type-d-reverse, 13, true);
+	/* E */
+	@include parabora-keyframes(type-e-reverse, 14, true);
+	/* F */
+	@include parabora-keyframes(type-f-reverse, 15, true);
+
+/* Delay Patterns */
+.coin-container {
+	&.late {
+		animation-delay: 0.5s;
+	}
+	&.later {
+		animation-delay: 0.8s;
+	}
+	&.much-later {
+		animation-delay: 1s;
+	}
+	&.way-much-later {
+		animation-delay: 1.2s;
+	}
+	&.latest {
+		animation-delay: 2s;
+	}
+}
+
+/* Horizontal Alignment Patterns */
+.coin-container {
+	&.far-left {
+		margin-left: -100px;
+	}
+	&.left {
+		margin-left: -50px;
+	}
+	&.right {
+		margin-left: 50px;
+	}
+	&.far-right {
+		margin-left: 100px;
+	}
+}
+
+/*
+	 coin spinning
+*/
+.coin-container {
+	.coin.spin {
+		animation-name: coin-spin;
+		animation-duration: 1.2s;
+		animation-fill-mode: both;
+		animation-iteration-count: infinite;
+	}
+}
+/*
+	keyframes for coin spin (3d)
+*/
+@keyframes coin-spin {
+	0%    { transform: rotateX(0deg)  rotateZ(0deg);  }
+	50%   { transform: rotateX(180deg) rotateZ(45deg); }
+	100%   { transform: rotateX(360deg) rotateZ(0deg); }
+}
+
+@keyframes blink-starburst {
+	0%    { opacity: 0.1;  }
+	50%   { opacity: 1; }
+	100%   { opacity: 0.1; }
+}

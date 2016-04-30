@@ -1,0 +1,85 @@
+/*
+	reel strip, symbols
+	Spec for the symbol image file
+	width: 150px;
+	height: 80px;
+*/
+
+.symbol.shiny {
+	&:before, &:after  {
+		width:150px;
+		height:87px;
+		position:absolute;
+		display:block;
+		content:"";
+		background-repeat: no-repeat;
+		background-position: center;
+		animation-name: blink-starburst;
+		animation-duration: 1.8s;
+		animation-fill-mode: both;
+		animation-iteration-count: infinite;
+	}
+	&:after {
+		background-image:url(../images/vfx/small_star_burst_b.png);
+		animation-delay: 1s;
+	}
+	&:before {
+		background-image:url(../images/vfx/small_star_burst_c.png);
+	}
+}
+
+.symbol.befive {
+	background-image: url(../images/symbols/befive.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+}
+
+.symbol.blank {
+	background-image: none;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+}
+
+.symbol.orange {
+	background-image: url(../images/symbols/orange.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+}
+
+.symbol.seven {
+	background-image: url(../images/symbols/seven.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+}
+
+.symbol.cherry {
+	background-image: url(../images/symbols/cherry.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+}
+
+.symbol.bell {
+	background-image: url(../images/symbols/bell.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+}
+
+.symbol.bar {
+	background-image: url(../images/symbols/bar.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+}
+
+.symbol.prune {
+	background-image: url(../images/symbols/prune.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+}

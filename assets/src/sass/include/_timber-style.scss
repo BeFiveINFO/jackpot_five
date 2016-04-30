@@ -1,0 +1,394 @@
+/*------------------------------------------------------------------
+Timber Framework Site Styling
+Version: 1;
+Author: ThemeMountain
+Copyright: ThemeMountain
+License: MIT
+
+[Table of contents]
+
+1. Typography
+2. Background Color & Color Classes
+3. Nav Bar & Side Navigation
+4. Homepage
+5. Inner Pages
+6. Plugin Demo Classes
+7. Sidebar
+8. Footer
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[1. Typography]
+*/
+a,
+p a{
+	font-weight: bold;
+}
+a:hover, 
+p a:hover{
+	text-decoration: none;
+}
+.sidebar a{
+	color: #666;
+	font-weight: normal;
+}
+.sidebar a:hover{
+	color: #81a936;
+}
+h1, h1 a,
+h2, h2 a,
+h3, h3 a,
+h4, h4 a, 
+h5, h5 a, 
+h6, h6 a{
+	font-weight: 300;
+	color: #333;
+	letter-spacing: 0.1rem;
+}
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover{
+	color: #fdeb74;
+}
+h3.widget-title {
+	font-size: 1.8rem;
+	font-weight: 400;
+}
+p{
+	font-weight: 200;
+	font-size: 1.4rem;
+	line-height: 1.8;
+}
+p.lead{
+	font-weight: 100;
+}
+.parallax h1, 
+.parallax h2, 
+.parallax h3, 
+.parallax h4, 
+.parallax h5, 
+.parallax h6, 
+.parallax .lead,
+.page-title-container h1,
+.page-title-container h3,
+.page-title-container h3,
+.page-title-container h4,
+.page-title-container h5,
+.page-title-container h6,
+.page-title-container p{
+	color: #ffffff;
+}
+
+/*------------------------------------------------------------------
+[2. Background Color & Color Classes]
+*/
+.bkg-green{
+	background-color: #81a936;
+	border-color: #81a936;
+}
+.border-green{
+	border-color: #81a936;
+}
+.color-green{
+	color: #81a936;
+}
+
+/*------------------------------------------------------------------
+[3. Navbar & Side Navigation]
+*/
+.nav-bar{
+	background: #232323; 
+}
+.nav-bar .logo a{
+	font-size: 1.6rem;
+	text-decoration: none;
+	color: #ffffff;
+}
+.side-navigation-header .logo a:hover{
+	color: #fff;
+}
+
+/* Side Navigation */
+.side-navigation .label{
+	float: right;
+	font-size: 0.9rem;
+	font-weight: 200;
+}
+.side-navigation-header,
+.side-navigation-footer{
+	font-size: 1.4rem;
+	line-height: 1.8;
+}
+.side-navigation-header{
+	min-height: 5rem;
+	padding: 0 4rem;
+}
+.side-navigation-footer{
+	padding: 2rem 4rem;
+}
+.side-navigation-header .logo{
+	min-height:5rem;
+	line-height: 5rem;
+	float: left;
+}
+.navigation-header .logo a{
+	font-size: 1.5rem;
+	font-weight:bold;
+	text-decoration: none;
+	color: #666666;
+}
+.navigation-hide{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.navigation-hide a{
+	color: #999;
+}
+.mobile .navigation-show{
+	display: table;
+}
+.mobile .navigation-show a{
+	height: 100%;
+	display: table-cell;
+	vertical-align: middle;
+}
+@media only screen and (max-width: 960px) {
+	.navigation-show{
+		display: table;
+	}
+	.navigation-show a{
+		height: 100%;
+		color: #fff;
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+/*------------------------------------------------------------------
+[4. Homepage]
+*/
+.homepage .nav-bar{
+	width: 100%;
+	background: none;
+	position: absolute;
+	z-index: 2;
+}
+.navigation ul li a{
+	color: #999;
+}
+.homepage .navigation ul li > a,
+.homepage .navigation ul li.current > a{
+	background-color: rgba(0,0,0,0);
+}
+.homepage .side-navigation-show > a{
+	color: #fff;
+}
+.homepage .content{
+	margin-top: -5rem;
+}
+.homepage .parallax{
+	height: 65rem;
+}
+.homepage .grid-item *:last-child{
+	margin-bottom: 0;
+}
+
+/*------------------------------------------------------------------
+[5. Inner Pages]
+*/
+.section-header{
+	background-color: #1b1b1b;
+	background-image:url(../images/slider/slide-2-fs-hp.jpg);
+}
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (		 min-device-pixel-ratio: 2),
+only screen and (			min-resolution: 192dpi),
+only screen and (				min-resolution: 2dppx) { 
+	.section-header{
+		background-image:url(../images/slider/slide-2-fs-hp@2x.jpg);
+	}
+}
+
+/*------------------------------------------------------------------
+[6. Plugin Demo Classes]
+*/
+
+/* Slider */
+.tm-slider-container{
+	margin-bottom: 3rem;
+}
+.full-width-slider{
+	margin-bottom: 0;
+}
+.carousel-box{
+	width: 90%;
+	height: 100%;
+	padding: 1rem 1.5rem;
+	margin: auto;
+}
+
+/* Navigation Demo */
+.nav-demo{
+	margin-bottom: 3rem;
+}
+/* Grid Demo */
+.grid-demo{
+	margin-bottom: 3rem;
+}
+
+/* Horizon Plugin Demo*/
+.horizon{
+	opacity: 0;
+	visibility: hidden;
+}
+
+/* Retinize Plugin Demo*/
+.retina-demo .img-container{
+	height: 22rem;
+	overflow: hidden;
+}
+.retinize-background{
+	width: 100%;
+	height: 22rem;
+	background-image:url(../images/lightbox/thumb-6.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+/* Equalize Plugin Demo*/
+.equalize .grid-item div:not(.thumbnail){
+	width: 100%;
+	height: 100%;
+	padding: 2rem;
+	float: left;
+}
+
+/* Counter Plugin Demo*/
+.counter-wrapper{
+	text-align: center;
+}
+.counter{
+	font-size: 4.5rem;
+	line-height: 1;
+	font-weight: 200;
+	margin-bottom: 0;
+}
+
+/* Touch Pane Demo */
+.touch-pane{
+	width: 100%;
+	height: 20rem;
+	margin-bottom: 3rem;
+	display: table;
+	text-align: center;
+}
+.touch-pane-inner{
+	height: 100%;
+	display: table-cell;
+	vertical-align: middle;
+}
+.touch-pane-inner p{
+	font-size: 2rem;
+	margin-bottom: 0;
+}
+
+/* Entypo Font Grid */
+.font-icon-examples [class*="icon-"]{
+	margin: 0 1rem 1rem 0;
+}
+.font-icon-grid [class*="icon-"]{
+	margin-bottom: 0.3rem;
+}
+
+/*------------------------------------------------------------------
+[7. Sidebar]
+*/
+.sidebar .list-group .current a,
+.sidebar .list-group .current span:not(.label),
+.examples-list .current a,
+.examples-list .current span:not(.label){
+	color:#81a936;
+	font-weight: bold;
+}
+.sidebar .list-group [class*="icon-"]{
+	float: right;
+	margin-right: 0;
+}
+.sidebar .label.small{
+	font-size: 0.9rem;
+}
+
+/*------------------------------------------------------------------
+[8. Footer]
+*/
+footer .navigation{
+	margin-bottom: 2.5rem;
+}
+footer .navigation:after{
+	width: 6rem;
+	height: 0.1rem;
+	margin: 1rem 0 0 -3rem;
+	background: #555;
+	content: '';
+	position: absolute;
+	left: 50%;
+}
+footer .navigation ul li a{
+	line-height: 2rem;
+	text-transform: uppercase;
+	background: none;
+	padding: 0 1rem;
+}
+footer .navigation ul li:hover > a{
+	background:none;
+	color:#ffffff;
+}
+footer .navigation ul li.current > a,
+footer .navigation ul li.current-menu-item > a,
+footer .navigation ul li.current_page_item a,
+footer .navigation ul li.current-menu-ancestor > a,
+footer .navigation ul li.current_page_ancestor > a{
+	background: none;
+}
+footer{
+	background: #232323;
+}
+footer img{
+	width: 170px;
+}
+footer .footer-text{
+	margin-top: 0.5rem;
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+	font-size: 11px;
+	color: #555;
+}
+footer .version-number{
+	padding: 0.4rem 1.2rem;
+	margin: auto;
+	border-radius: 0.3rem;
+	background: #1b1b1b;
+	font-size: 1rem;
+	color: #666;
+	text-transform: uppercase;
+	display: inline-block;
+}
+footer .copyright{
+	font-size: 1.1rem;
+	color: #555;
+}
+footer .scroll-to-top{
+	width: 3rem;
+	height: 3rem;
+	line-height: 3rem;
+	border-radius: 0.3rem;
+	margin: auto;
+	background: #1b1b1b;
+}

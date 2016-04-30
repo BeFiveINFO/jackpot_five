@@ -1,0 +1,252 @@
+/*
+	front face
+*/
+.frontface-plate {
+	height: 380px;
+	width: 100%;
+	overflow: hidden;
+
+	.overlay_glass {
+		width: 730px;
+		height: 380px;
+		position: absolute;
+		z-index: 11;
+		overflow: hidden;
+		box-shadow: inset rgba(255,255,255,.1) 0 0px 30px;
+
+		&:after {
+			width:150%;
+			height:100%;
+			position:absolute;
+			top:-45%;
+			left:-25%;
+			display:block;
+			content:"";
+			background:rgba(255,255,255,0.1);
+			border-radius:100%;
+		}
+	}
+
+	.top-space {
+		height: 30px;
+		background-color: black;
+		position: relative;
+		z-index: 5;
+	}
+	.middle-space {
+		height: 230px;
+		.payline,.symbol-window,.gap{
+			height: 100%;
+			position: relative;
+			float: left;
+		}
+		.payline {
+			width: 130px;
+			background-color: black;
+			position: relative;
+			z-index: 5;
+			/* payline indicator */
+			.indicator {
+				background-color: #1470cc;
+				width: 90px;
+				height: 46px;
+				float: left;
+				position: absolute;
+				&.bet {
+					transition:all 1s ease-in-out;
+					animation:blink_betIndicator normal 2s infinite ease-in-out;
+					.order, .credit_payline {
+						color: white;
+					}
+				}
+
+				&:after {
+					content: "";
+					position: absolute;
+					width: 0;
+					height: 0;
+					border-top: 23px solid transparent;
+					border-left: 23px solid #1470cc;
+					border-bottom: 23px solid transparent;
+					margin: 0px 0px 0 90px;
+					z-index: 5;
+				}
+				.order, .credit_payline {
+					position: absolute;
+					float: left;
+					font-family: 'yanone_kaffeesatzbold';
+					color: #aaaaaa;
+				}
+				.order {
+					font-size: 51px;
+					left: 3px;
+					line-height: 40px;
+				}
+				.credit_payline {
+					font-size: 21px;
+					line-height: 22px;
+					left: 29px;
+					top: 2px;
+				}
+				&#first {
+					top: 89px;
+				}
+				&#second {
+					top: 12px;
+				}
+				&#third {
+					top:166px
+				}
+			}
+		}
+		.symbol-window {
+			width: 150px;
+			background-color: transparent;
+			border-radius: 12px;
+			box-shadow: 0 0 0 7px #888888;
+			box-shadow: 0 0 0 7px #AAAAAA, inset rgba(0,0,0,.5) 0 0px 24px;
+			z-index: 10; // this is to make sure that the right side border is not overlayed by the .gap filler
+			background-repeat: no-repeat;
+			&.right{
+				background-image: url(../images/cabinet/symbol-window-edge-right.png);
+				background-position: right;
+			}
+			&.left{
+				background-image: url(../images/cabinet/symbol-window-edge-left.png);
+				background-position: left;
+			}
+		}
+		.gap {
+			width: 50px;
+			background-color: black;
+			z-index: 9;
+		}
+		.overlay-shade {
+			width: 730px;
+			height: 230px;
+			position: absolute;
+			z-index: 1;
+			overflow: hidden;
+			background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 15%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 85%, rgba(0,0,0,0.6) 100%);
+		}
+		.background-shade {
+			width: 730px;
+			height: 230px;
+			position: absolute;
+			z-index: 0;
+			overflow: hidden;
+			background: linear-gradient(to bottom, #CCCCCC 0%, #FFFFFF 50%, #EEEEEE 85%, #CCCCCC 100%);
+		}
+	}
+	.bottom-space {
+		height: 120px;
+		background-color: black;
+		position: relative;
+		z-index: 5;
+
+		#winner_paid, #bet {
+			position: relative;
+			float: left;
+			  margin-top: 17px;
+			.label {
+				text-align: center;
+			}
+		}
+
+		#winner_paid {
+			left: 40px;
+		}
+		#bet {
+			left: 65px;
+		}
+
+		#free_games, #credits {
+			right: 45px;
+  			float: right;
+  			.label {
+				width: 130px;
+			}
+  			.label, .segment_display_wrap {
+				position: relative;
+				float: left;
+			}
+		}
+
+		#free_games {
+  			margin-top: 17px;
+		}
+
+		.display_container {
+			position: relative;
+			float: left;
+		}
+
+		.label {
+			color: white;
+			font-family: 'oswaldbold';
+			font-size: 24px;
+		}
+
+		.segment_display_wrap {
+			width: 150px;
+			height: 36px;
+			border-radius: 6px;
+			box-shadow: 0 0 0 3px #AAAAAA;
+			margin-bottom: 10px;
+			padding-top: 4px;
+			padding-right: 6px;
+			text-align: left;
+			position: relative;
+
+			&.small {
+				width: 40px;
+				padding-right: 4px;
+				.segment_display {
+					margin-left: 8px;
+				}
+			}
+		}
+
+		.segment_display {
+			position: absolute;
+			margin-left: 20px;
+			width: inherit;
+			font-family: 'segment14regular';
+			font-size: 24px;
+			color: #ff0000; // red
+			text-shadow: -1px 1px 8px #7f0000, 1px -1px 8px #ff7f7f;
+			&.dimmed {
+				color: #330000; // dark red
+			}
+		}
+
+		.price_decal_container {
+			width: 90px;
+			height: 90px;
+			border-radius: 6px;
+			box-shadow: 0 0 0 3px #AAAAAA, inset rgba(0,0,0,.5) 0 0px 24px;
+			margin-top: 17px;
+			float: left;
+			position: relative;
+			left: 90px;
+			&.oneCent {
+				background-image: url(../images/price_decals/price_decal_1c.png);
+			}
+			&.twentyFive {
+				background-image: url(../images/price_decals/price_decal_25c.png);
+			}
+			&.oneDollar {
+				background-image: url(../images/price_decals/price_decal_1dollar.png);
+			}
+			&.amusement {
+				background-image: url(../images/price_decals/price_decal_amusement.png);
+			}
+		}
+	}
+}
+
+@keyframes blink_betIndicator {
+  0% {text-shadow: 0 0 0 #fff;}
+  50% {text-shadow: 0 0 40px #228DFF;}
+  100% {text-shadow: 0 0 0 #fff;}
+}

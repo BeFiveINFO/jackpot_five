@@ -1,0 +1,37 @@
+/*
+	Cabinet main
+*/
+
+#game-cabinet {
+	width: 730px;
+	height: 692px;
+	padding: 7px;
+	border-radius: 12px;
+	background-color: gray;
+	background: linear-gradient(top, #d4d5d6 0%, #d2d3d4 22%, #c8c9ca 68%, #c8c9ca 100%);
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	transition: margin 0.5s ease-out;
+
+	user-select: none;
+
+    box-shadow:
+        0px 3px rgba(128,128,128,1),
+        0px 4px rgba(118,118,118,1),
+        0px 5px rgba(108,108,108,1),
+        0px 6px rgba(98,98,98,1),
+        0px 7px rgba(88,88,88,1),
+        0px 8px rgba(78,78,78,1),
+        0px 14px 6px -1px rgba(128,128,128,1); /* shadow */
+
+	&.mobile {
+		margin-right: 0px;
+	}
+	&.booting {
+		display: none;
+	}
+}
+
+/*
+	responsive
+*/

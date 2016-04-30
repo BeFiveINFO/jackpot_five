@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- iOS related -->
+	<meta name="format-detection" content="telephone=no" /><!-- This is to prevent iOS auto link of telephone numbers on segments -->
+	<meta name="viewport" content="width=device-width"><!-- necessary for fastclick implemented for mobile devices -->
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" /><!-- tap zoom disabled. Place this line after "width=device-width" or this declaration will be ignored by certain browsers such as iOS Safari. -->
+
+	<title>Jackpot Five Cabinet</title>
+	<link rel="stylesheet" href="assets/css/styles.css" />
+	<link rel="stylesheet" href="assets/css/animate.css" />
+	<link rel="stylesheet" href="assets/css/flexslider.css" />
+</head>
+<body>
+	<noscript>
+		<div class="noscript alignMiddleCenter">
+			This web application requires Javascript. You are seeing this message because Javascript is not enabled or working in your web browser.
+		</div>
+	</noscript>
+	<div id="debug_1" class="cabinet"></div>
+	<div id="console" class="dialog alignMiddleCenter">
+
+	</div>
+	<div id="game-cabinet" class="booting alignMiddleCenter">
+		<div class="marquee">
+			<div class="overlay_glass"><!-- overlay --></div>
+			<div class="flexslider">
+				<ul class="slides">
+					<li>
+						<img src="assets/images/marquees/marquee_logo.png" />
+					</li>
+					<li>
+						<img src="assets/images/marquees/marquee_paytable.png" />
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="frontface-plate">
+			<div class="overlay_glass"><!-- overlay --></div>
+			<div class="top-space"><!-- blank space --></div>
+			<div class="middle-space">
+				<div class="overlay-shade"><!-- overlay for the reels--></div>
+				<div class="background-shade"><!-- background for the reel stepper unit--></div>
+				<div class="payline">
+					<div class="indicator bet" id="first">
+						<span class="order ">1</span>
+						<span class="credit_payline">CREDIT<br />PAYLINE</span>
+					</div>
+					<div class="indicator" id="second">
+						<span class="order">2</span>
+						<span class="credit_payline">CREDITS<br />PAYLINE</span>
+					</div>
+					<div class="indicator" id="third">
+						<span class="order">3</span>
+						<span class="credit_payline">CREDITS<br />PAYLINE</span>
+					</div>
+				</div>
+				<div class="symbol-window left"></div>
+				<div class="gap"></div>
+				<div class="symbol-window"></div>
+				<div class="gap"></div>
+				<div class="symbol-window right"></div>
+				<div class="gap"></div>
+			</div>
+			<div class="bottom-space"><!-- winner paid, bet, credts and free games -->
+				<div id="winner_paid" class="display_container">
+					<div class="segment_display_wrap medium">
+						<div class="segment_display dimmed">00000000</div>
+						<div class="segment_display active">&nbsp;&nbsp;&nbsp;&nbsp;1000</div>
+
+					</div>
+					<div class="label">
+						WINNER PAID
+					</div>
+				</div>
+				<div id="bet" class="display_container">
+					<div class="segment_display_wrap small">
+						<div class="segment_display dimmed">00</div>
+						<div class="segment_display active">&nbsp;3</div>
+					</div>
+					<div class="label">
+						BET
+					</div>
+				</div>
+				<div id="price_decal" class="price_decal_container amusement"><!-- css background image (90x90) --></div>
+				<div id="free_games" class="display_container">
+					<div class="label">
+						FREE GAMES
+					</div>
+					<div class="segment_display_wrap">
+						<div class="segment_display dimmed">00000000</div>
+						<div class="segment_display active"></div>
+					</div>
+				</div>
+				<div id="credits" class="display_container">
+					<div class="label">
+						CREDITS
+					</div>
+					<div class="segment_display_wrap">
+						<div class="segment_display dimmed">00000000</div>
+						<div class="segment_display active">00000000</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="controlpanel">
+			<a class="button glossy functions red" style="display:none">FRONT<br />PAGE</a>
+			<a id="spin_reels" class="button glossy">SPIN<br />REELS</a>
+			<a id="bet_max" class="bet button glossy">BET<br />MAX</a>
+			<a id="bet_one" class="bet button glossy">BET<br />ONE</a>
+			<a class="button glossy paytable blue" style="display:none">PAY<br />TABLE</a>
+		</div>
+		<div id="reel_holder">
+			<!-- reel -->
+		</div><!-- reel holder -->
+		<div id="vfx-wrapper">
+			<div id="vfx-container">
+
+			</div><!-- #vfx-container -->
+		</div><!-- #vfx-wrapper -->
+	</div><!-- #game-cabinet -->
+	<div id="debugChart"></div>
+	<script src="assets/js/modernizr.custom.js"></script>
+
+	<script src="assets/js/jquery-2.1.4.min.js"></script><script src="assets/js/jquery.easing.min.js"></script>
+
+	<script src="assets/js/underscore-min.js"></script><!-- warning: underscore needs to be loaded first before backbone.js otherwise backbone causes an error. -->
+	<script src="assets/js/backbone-1.2.1.min.js"></script>
+	<script src="assets/js/prettyprint.js"></script>
+	<script src="assets/js/preloadjs/preloadjs-0.6.1.min.js"></script>
+	<script src="assets/js/soundjs/soundjs-0.6.1.min.js"></script>
+	<script src="assets/js/jquery.flexslider-min.js"></script>
+	<script src="assets/js/javascript.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Slot Machine Development</title>
+	<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+	<div class="coin-container">
+		<div class="coin spin">
+			<div class="tail"><p>TA</p></div>
+			<div class="head"><p>HA</p></div>
+		</div>
+	</div>
+	<div id="debug_1"></div>
+	<div id="debug_2"></div>
+	<div id="debug_3">
+		<button id="f_12" data-value= "12" class="changeForce"><h4>F = 12 (key 1)</h4></button>
+		<button id="f_18" data-value= "18" class="changeForce"><h4>F = 18 (key 2)</h4></button>
+		<button id="f_24" data-value= "24" class="changeForce"><h4>F = 24 (key 3)</h4></button>
+		<button id="f_30" data-value= "30" class="changeForce"><h4>F = 30 (key 4)</h4></button>
+		<button id="fire"><h2>Fire (Space)</h2></button></div>
+	<div id="debugChart"></div>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="assets/js/flot/jquery.flot.min.js"></script>
+<script src="assets/js/debug_verlet.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+/*
+Mechanism for spin roll rings
+*/
+
+#reel_holder {
+  position: absolute;
+  top: 238px;
+  left: 135px;
+  height: 260px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.reel {
+	width: 160px; /* rotation axis */
+	float: left;
+	margin-right: 37px;
+	position: relative;
+}
+
+.symbol {
+	position: relative;
+	width: 160px;
+	// 87px by default
+	height: $symbolHeight#{px};
+	background-color: white;
+/*	opacity: 0.7;*/
+	color: rgba(0,0,0,0.9);
+/*	border: 1px gray solid;
+	border-radius: 10px;*/
+}
+
+.symbol > p {
+	display: none;
+	font-family: 'Georgia', serif;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 28px;
+	position: absolute;
+}

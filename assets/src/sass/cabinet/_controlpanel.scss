@@ -1,0 +1,177 @@
+/*
+	controlpanel
+*/
+
+.controlpanel {
+	height: 95px;
+	border-bottom-right-radius: 12px;
+	border-bottom-left-radius: 12px;
+	border-top: 2px solid white;
+
+	box-shadow: inset 0px 0px 24px -1px rgba(0,0,0,0.5);
+
+	background: linear-gradient(
+		to bottom, rgba(226,226,226,1) 0%,
+		#C8C8C8 5%,
+		#BFBFBF 7%,
+		#F0F0F0 90%,
+		#BFBFBF 98%,
+		#969696 100%
+	);
+
+	.button {
+		height: auto;
+		float: right;
+		user-select: none;
+		&.functions {
+			float: left;
+			font-size: 16px;
+			top: 18px;
+			margin-left: 20px;
+		}
+		&.paytable {
+			float: right;
+			font-size: 16px;
+			top: 18px;
+			margin-right: 30px;
+		}
+	}
+}
+
+.controlpanel {
+	button.button:hover {
+		cursor: pointer;
+	}
+	/* -------------- THE button -------------- */
+	.button {
+
+		/* text */
+		text-decoration: 		none;
+		font: 					24px/1em 'Droid Sans', sans-serif;
+		font-weight: 			bold;
+		text-shadow: 			rgba(255,255,255,.5) 0 1px 0;
+		user-select: 			none;
+
+
+		/* layout */
+		padding: 				.5em .6em .4em .6em;
+		margin: 				0.3em .5em .5em .5em;
+		display: 				inline-block;
+		position: 				relative;
+
+		border-radius: 	8px;
+
+		/* effects */
+		border-top: 		1px solid rgba(255,255,255,0.8);
+		border-bottom: 		1px solid rgba(0,0,0,0.1);
+
+		transition: 		background .2s ease-in-out;
+
+		/* color */
+		color: 				#222222;
+		background-color: 	hsl(0, 0%, 90%);
+
+		box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+		hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+		rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+
+		&.enabled {
+			background-color: #ffffe7;
+			&.blink {
+				animation:blink_whiteButton normal 2s infinite ease-in-out;
+			}
+		}
+	}
+
+	/* red */
+	.button.red {
+		background-color: 	hsl(340, 100%, 75%);
+		box-shadow: 		inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+		hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+		rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+	}
+	.button.red:hover {background-color: hsl(340, 100%, 83%); }
+	/* blue */
+	.button.blue {
+		color: 				hsl(208, 50%, 40%) !important;
+		background-color: 	hsl(208, 100%, 75%);
+		box-shadow: 		inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+		hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+		rgba(0,0,0,0.2) 0 .5em 5px;	/* drop shadow */
+	}
+	.button.blue:hover { 	background-color: hsl(208, 100%, 83%); }
+
+	/* -------------- States -------------- */
+
+	.button:hover {
+		/*background-color: 	hsl(0, 0%, 98%);*/
+	}
+
+
+
+	.button:active {
+		box-shadow: 		inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */
+		rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+		rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+		transform: 			translateY(.2em);
+	}
+
+	.button:focus {
+		outline: none;
+		color: rgba(254,255,255,0.9) !important;
+		text-shadow: rgba(0,0,0,0.2) 0 1px 2px;
+	}
+
+	.button[disabled], .button[disabled]:hover, .button.disabled, .button.disabled:hover {
+		opacity: 			.5;
+		cursor: 			default;
+		color: 				rgba(0,0,0,0.2) !important;
+		text-shadow: 		none !important;
+		background-color: 	rgba(0,0,0,0.05);
+		background-image: 	none;
+		border-top: 		none;
+
+		box-shadow: 		inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */
+		rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+		rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+		transform: 			translateY(5px);
+	}
+
+	/* -------------- Materials -------------- */
+
+	.button.glossy:after, .button.glass:after {
+		content: 	"";
+		position: 	absolute;
+		width: 		90%;
+		height: 	60%;
+		top: 		0;
+		left: 		5%;
+
+		border-radius: 			.5em .5em 1em 1em / .5em .5em 2em 2em;
+
+		background: linear-gradient(to right, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.55) 100%);
+	}
+	.button.glossy:active:after,
+	.button.glass:active:after,
+	.button.disabled:after,
+	.button[disabled]:after
+	{ opacity: .6; }
+
+	.button.icon.glossy:after,
+	.button.icon.glass:after { height: 75% ; }
+}
+/*
+	keyframe animation
+*/
+@keyframes blink_whiteButton {
+	0% {
+		background-color: #fff9e7;
+	}
+	50% {
+		background-color: #ffefc0;
+	}
+	100% {
+		background-color: #fff9e7;
+	}
+}
