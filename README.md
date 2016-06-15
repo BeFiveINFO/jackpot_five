@@ -2,8 +2,8 @@
 Pure html5 slot machine game virtual cabinet (concept)
 
 # Demo 
-[Advertisement Integration](http://jackpot5.vgm.website/index.html)  
-[Live Chat Integration Example](http://jackpot5.vgm.website/livechat.html)
+[Advertisement Integration](http://jackpot5.befive.info/index.html)  
+[Live Chat Integration Example](http://jackpot5.befive.info/livechat.html)
 
 # License 
 MIT
