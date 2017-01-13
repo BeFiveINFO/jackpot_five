@@ -1745,9 +1745,7 @@ Gframe.backbone.views.reels = Backbone.View.extend({
 		var _current_totalPayout = this.current_totalPayout;
 		var _payoutSoundID = '';
 
-		if(_current_totalPayout >= 500) {
-			_payoutSoundID = 'handpay_bell';
-		} else if(_current_totalPayout >= 50) {
+		if(_current_totalPayout >= 50) {
 			_payoutSoundID = 'payout_4';
 		} else if(_current_totalPayout >= 10) {
 			_payoutSoundID = 'payout_3';
@@ -1760,40 +1758,14 @@ Gframe.backbone.views.reels = Backbone.View.extend({
 		// play awards sound
 		Backbone.mediator.trigger( 'playSound' , _payoutSoundID);
 
-
-		if(_current_totalPayout >= 500) {
-			// hand pay
-			var _self = this;
-			// set a delay timer for the handpay bell
-			Gframe.clock.addTimer({
-				'id': 'wait_for_handpayment_bell',
-				'loop': 0,
-				'frequency': 5625, // the handpay bell lasts for about 5625 milliseconds
-				'setInterval': false, // use setTimeout mode
-				timerFunction: function () {
-					// forcing users to hear the bell sound
-					Backbone.mediator.trigger( 'gameStartReady' , true);
-					// now the big_payout BGM
-					Backbone.mediator.trigger( 'playSound' , 'big_payout');
-					// now begin the segment animation, counting up.
-					_self.startSegmentCountAnimation();
-					// start VFX
-					Gframe.vfx.showVFX('coins_bigWin');
-					// this timer is to be removed
-					Gframe.clock.removeTimer('wait_for_handpayment_bell');
-				}
-			});
-			Gframe.clock.startTimer('wait_for_handpayment_bell');
-		} else {
-			// regular payout
-			// now begin the segment animation, counting up.
-			// coin VFX only when the payout is more than 10.
-			if(_current_totalPayout >= 10) {
-				Gframe.vfx.showVFX('coins_smallWin');
-			}
-			Backbone.mediator.trigger( 'gameStartReady' , true);
-			this.startSegmentCountAnimation();
+		// regular payout
+		// now begin the segment animation, counting up.
+		// coin VFX only when the payout is more than 10.
+		if(_current_totalPayout >= 10) {
+			Gframe.vfx.showVFX('coins_smallWin');
 		}
+		Backbone.mediator.trigger( 'gameStartReady' , true);
+		this.startSegmentCountAnimation();
 	},
 	/*
 		startSegmentCountAnimation()
@@ -2421,7 +2393,6 @@ Gframe.rom.sound.files = [
 	{'id': 'payout_3','src': 'assets/sound/payout_3.ogg','PlayPropsConfig':{'loop':-1}},
 	{'id': 'payout_4','src': 'assets/sound/payout_4.ogg','PlayPropsConfig':{'loop':-1}},
 	{'id': 'big_payout','src': 'assets/sound/big_payout.ogg','PlayPropsConfig':{'loop':-1}},
-	{'id': 'handpay_bell','src': 'assets/sound/handpay_bell.ogg'},
 	{'id': 'reel_spin_1_a','src': 'assets/sound/reel_spin_1_a.ogg','PlayPropsConfig':{'loop':-1},'savePosition': true},
 	{'id': 'reel_spin_1_b','src': 'assets/sound/reel_spin_1_b.ogg','PlayPropsConfig':{'loop':-1},'savePosition': true},
 	{'id': 'reel_spin_1_c','src': 'assets/sound/reel_spin_1_c.ogg','PlayPropsConfig':{'loop':-1},'savePosition': true},
